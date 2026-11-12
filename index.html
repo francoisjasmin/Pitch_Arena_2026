@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081126">
+  <meta name="description" content="Attribution ludique des plages de présentation des groupes 1010 et 1020, les 4 et 7 décembre 2026.">
+  <title>Pitch Arena — Le grand tirage des présentations</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-a" aria-hidden="true"></div>
+  <div class="ambient ambient-b" aria-hidden="true"></div>
+  <div class="noise-grid" aria-hidden="true"></div>
+
+  <div class="app-shell" id="appShell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">✳</span><span>PITCH<span class="brand-accent">ARENA</span><small>ÉDITION 2026</small></span></div>
+      <div class="top-actions">
+        <span class="event-date"><span class="tiny-dot"></span> 4 &amp; 7 DÉCEMBRE 2026</span>
+        <button class="small-button" id="projectionBtn" type="button" title="Activer ou désactiver le mode projection" aria-pressed="false"><span aria-hidden="true">⛶</span> <span class="hide-mobile">Projection</span></button>
+        <button class="small-button danger-outline" id="resetBtn" type="button" title="Réinitialiser uniquement le groupe actif"><span aria-hidden="true">↺</span> <span class="hide-mobile">Réinitialiser ce groupe</span></button>
+      </div>
+    </header>
+
+    <section class="hero" aria-labelledby="pageTitle">
+      <div>
+        <p class="eyebrow"><span class="eyebrow-line"></span> LA MISSION : CHOISIR SA PLACE SUR SCÈNE</p>
+        <h1 id="pageTitle">Le grand <span class="gradient-text">tirage</span><br>des présentations <span class="title-sparkle" aria-hidden="true">✦</span></h1>
+        <p class="hero-subtitle">Un groupe à la fois, <strong>créneau par créneau</strong> : une équipe se propose… ou la roulette décide !</p>
+      </div>
+      <div class="hero-decor" aria-hidden="true">
+        <img src="images/scene-pitch.svg" alt="" class="hero-art">
+        <span class="hero-star star-one">✦</span><span class="hero-star star-two">✧</span>
+      </div>
+    </section>
+
+    <section class="group-selector-section" aria-labelledby="groupSelectorTitle">
+      <div class="group-selector-heading">
+        <div><p class="section-kicker">ÉTAPE 1 · CHOISIR SA CLASSE</p><h2 id="groupSelectorTitle">Quel groupe passe à la roulette ?</h2><p>Sélectionnez le groupe présent. Son tirage est entièrement indépendant de l’autre.</p></div>
+        <span class="separation-badge">🔒 TIRAGES INDÉPENDANTS</span>
+      </div>
+      <div class="group-picker" role="group" aria-label="Choisir le groupe de présentation">
+        <button class="group-pick" type="button" id="groupSelect1010" data-group="1010" aria-pressed="true">
+          <img src="images/groupe-1010.svg" alt="" class="group-pick-art">
+          <span class="group-pick-body"><span class="group-pick-label">GROUPE <strong>1010</strong></span><span class="group-pick-dates">Ven. 4 déc. · 12 h 10 <i>+</i> Lun. 7 déc. · 8 h 10</span><span class="group-pick-progress" id="groupSummary1010">0 / 4 équipes placées</span></span>
+          <span class="group-check" aria-hidden="true">✓</span>
+        </button>
+        <button class="group-pick" type="button" id="groupSelect1020" data-group="1020" aria-pressed="false">
+          <img src="images/groupe-1020.svg" alt="" class="group-pick-art">
+          <span class="group-pick-body"><span class="group-pick-label">GROUPE <strong>1020</strong></span><span class="group-pick-dates">Ven. 4 déc. · 8 h 10 <i>+</i> Lun. 7 déc. · 12 h 10</span><span class="group-pick-progress" id="groupSummary1020">0 / 6 équipes placées</span></span>
+          <span class="group-check" aria-hidden="true">✓</span>
+        </button>
+      </div>
+      <p class="group-active-hint" id="groupActiveHint">✦ Groupe 1010 actif · seules ses 4 équipes participent au tirage.</p>
+    </section>
+
+    <section class="metrics" aria-label="Statistiques de planification">
+      <div class="metric"><span class="metric-icon blue">👥</span><div><span class="metric-value" id="teamTotalMetric">04</span><span class="metric-label">ÉQUIPES DU GROUPE</span></div></div>
+      <div class="metric"><span class="metric-icon purple">◷</span><div><span class="metric-value">06</span><span class="metric-label">PLAGES DE 25 MIN</span></div></div>
+      <div class="metric"><span class="metric-icon green">✓</span><div><span class="metric-value" id="assignedMetric">00 <span class="metric-denominator">/ 04</span></span><span class="metric-label">ÉQUIPES PLACÉES</span></div></div>
+      <div class="metric"><span class="metric-icon gold">✧</span><div><span class="metric-value" id="freeMetric">00 <span class="metric-denominator">/ 02</span></span><span class="metric-label">PLAGES LIBRES CONFIRMÉES</span></div></div>
+    </section>
+
+    <section class="main-grid" aria-label="Attribution des plages et calendrier">
+      <div class="stage-section">
+        <div class="section-heading"><div><p class="section-kicker">02 / L'ACTION</p><h2>À qui le tour ? <span class="wave" aria-hidden="true">✌</span></h2></div><span class="live-badge"><span></span> EN DIRECT</span></div>
+
+        <article class="stage-card" id="stageCard">
+          <div class="stage-topline"><span class="stage-pill"><span class="stage-pill-dot"></span> CRÉNEAU EN COURS</span><span class="slot-counter" id="slotCounter">01 / 06</span></div>
+          <div id="activeStage" aria-live="polite">
+            <p class="stage-date" id="stageDate">VENDREDI 4 DÉCEMBRE</p>
+            <div class="stage-time" id="stageTime">08:10 <span>→</span> 08:35</div>
+            <div class="stage-group" id="stageGroup"><span class="group-signal group-1020"></span> GROUPE 1020 <span class="stage-duration">· 25 MINUTES</span></div>
+          </div>
+          <div class="stage-line"></div>
+          <div class="progress-head"><span>Progression du groupe</span><strong id="progressLabel">0 / 6</strong></div>
+          <div class="progress-track" role="progressbar" aria-label="Progression du calendrier" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0" id="progressTrack"><div class="progress-fill" id="progressFill"></div></div>
+          <p class="stage-hint" id="stageHint">Choisissez une équipe volontaire ou déclenchez un tirage au sort.</p>
+        </article>
+
+        <section class="selection-panel" id="selectionPanel" aria-labelledby="volunteerTitle">
+          <div class="panel-heading"><div><span class="panel-step">A</span><h3 id="volunteerTitle">Une équipe volontaire ?</h3></div><span class="count-badge" id="availableCount">4 DISPONIBLES</span></div>
+          <p class="panel-subtitle">Cliquez sur le nom de l'équipe qui souhaite cette plage.</p>
+          <div class="team-choice-list" id="teamChoices" role="group" aria-label="Équipes disponibles pour le créneau actif"></div>
+          <button class="button button-primary" id="confirmVolunteer" disabled type="button"><span aria-hidden="true">✓</span> Confirmer cette équipe <span class="button-arrow" aria-hidden="true">↗</span></button>
+          <div class="or-divider"><span>OU SI PERSONNE NE SE PROPOSE</span></div>
+          <button class="button button-raffle" id="drawBtn" type="button"><span class="raffle-icon" aria-hidden="true">✺</span><span>Lancer le tirage au sort <small>Une équipe disponible sera choisie au hasard</small></span><span class="button-arrow" aria-hidden="true">→</span></button>
+        </section>
+        <div class="done-panel" id="donePanel" hidden><span class="done-icon" aria-hidden="true">🏆</span><h3>Mission accomplie !</h3><p id="doneMessage">Les équipes du groupe ont leur plage. Vous pouvez imprimer le résultat maintenant.</p><button class="button button-primary" type="button" id="donePrintBtn">🖨 Imprimer le résultat de ce groupe <span class="button-arrow">→</span></button><button class="button button-ghost" type="button" id="doneExportBtn">↓ Exporter le CSV du groupe</button></div>
+      </div>
+
+      <div class="schedule-section">
+        <div class="section-heading schedule-heading"><div><p class="section-kicker">03 / LA VUE D'ENSEMBLE</p><h2>Le calendrier <span aria-hidden="true">🗓</span></h2></div><span class="schedule-note">2 COURS · GROUPE 1010</span></div>
+        <div class="schedule-grid" id="scheduleGrid" aria-label="Plages de présentation par cours"></div>
+        <div class="schedule-footer"><div><span class="legend-dot waiting"></span> À venir</div><div><span class="legend-dot current"></span> En cours</div><div><span class="legend-dot taken"></span> Attribuée</div><div><span class="legend-dot free"></span> Libre</div></div>
+        <div class="tools-panel"><div><strong>Deux tirages, deux horaires distincts.</strong><span>Les choix sont mémorisés automatiquement dans ce navigateur.</span></div><div class="tools-actions"><button class="small-button" type="button" id="undoBtn" disabled>↶ Annuler (ce groupe)</button><button class="small-button export-button" type="button" id="exportBtn">↓ CSV du groupe</button><button class="small-button" type="button" id="printBtn">🖨 Imprimer le groupe 1010</button></div></div>
+      </div>
+    </section>
+
+    <section class="roster-section" aria-label="Registre des équipes">
+      <div class="section-heading"><div><p class="section-kicker">04 / LES CONCURRENTS</p><h2>Les équipes du groupe <span aria-hidden="true">⚡</span></h2></div><span class="roster-legend"><span class="legend-dot taken"></span> Placée <span class="legend-dot waiting"></span> En attente</span></div>
+      <div class="roster-grid" id="rosterGrid"></div>
+    </section>
+    <footer class="footer"><span>✳ PITCH ARENA <span class="footer-muted">/ Le hasard rencontre le courage.</span></span><span>FAIT POUR LE GRAND ÉCRAN · 2026</span></footer>
+  </div>
+
+  <div class="modal-backdrop" id="raffleModal" aria-hidden="true" role="presentation" hidden>
+    <div class="raffle-dialog" role="dialog" aria-modal="true" aria-labelledby="raffleTitle">
+      <div class="raffle-glow" aria-hidden="true"></div>
+      <span class="modal-eyebrow">✦ LA ROULETTE DES HÉROS ✦</span>
+      <h2 id="raffleTitle">Que le sort décide !</h2>
+      <p class="modal-subtitle" id="raffleDescription">Sélection aléatoire parmi les équipes disponibles.</p>
+      <div class="roulette-machine" id="rouletteMachine"><div class="roulette-icon" aria-hidden="true">✺</div><div class="roulette-label" id="rouletteLabel">LA ROULETTE TOURNE…</div><div class="roulette-name" id="rouletteName" aria-live="off">???</div><div class="roulette-bottom"><span>✦</span><span>✦</span><span>✦</span></div></div>
+      <div class="raffle-result" id="raffleResult" hidden><span class="winner-badge">🏆 ÉQUIPE SÉLECTIONNÉE</span><p id="raffleResultDescription"></p></div>
+      <button class="button button-primary modal-close" id="closeRaffleBtn" type="button" hidden>Continuer vers le prochain créneau <span class="button-arrow" aria-hidden="true">→</span></button>
+    </div>
+  </div>
+
+  <div class="confirm-backdrop" id="confirmModal" role="presentation" aria-hidden="true" hidden>
+    <div class="confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="confirmTitle"><div class="confirm-symbol" aria-hidden="true">↺</div><h2 id="confirmTitle">Recommencer ce groupe ?</h2><p id="resetDescription">Seules les attributions du groupe actif seront effacées. L’autre groupe restera intact.</p><div class="confirm-actions"><button type="button" class="small-button" id="cancelResetBtn">Garder l'horaire</button><button type="button" class="small-button reset-confirm" id="acceptResetBtn">Oui, réinitialiser ce groupe</button></div></div>
+  </div>
+  <section class="print-sheet" id="printSheet" aria-label="Horaire imprimable du groupe">
+    <div class="print-brand">PITCH ARENA · ÉDITION 2026</div>
+    <h1 id="printHeading">Horaire des présentations</h1>
+    <p id="printSubtitle"></p>
+    <div id="printContent"></div>
+    <p class="print-footer">Présentations des 4 et 7 décembre 2026 · Plages de 25 minutes</p>
+  </section>
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  <div class="sr-only" id="screenReaderAnnounce" role="status" aria-live="assertive" aria-atomic="true"></div>
+</body>
+</html>
