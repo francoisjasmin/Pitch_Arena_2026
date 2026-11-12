@@ -13,6 +13,7 @@ const TEAMS = Object.freeze([
   { id: '1010-petits', group: '1010', name: 'Petits de Montpetit' },
   { id: '1010-redbull', group: '1010', name: 'Redbull the Peach edition' },
   { id: '1010-tts', group: '1010', name: 'Text To Speech TTS' },
+  { id: '1010-lan', group: '1010', name: '1010-Équipe LAN' },
   { id: '1020-bmrz', group: '1020', name: 'B.M.R.Z. Incorporated' },
   { id: '1020-commit', group: '1020', name: 'Commit et Pray' },
   { id: '1020-crack', group: '1020', name: 'Le C.R.A.C.K' },
@@ -22,8 +23,8 @@ const TEAMS = Object.freeze([
 ]);
 
 /* IMPORTANT : le groupe 1020 compte SIX équipes dans la liste fournie,
-   et le groupe 1010 en compte QUATRE : 10 équipes au total.
-   Chaque groupe a 6 créneaux, donc 2 créneaux seront libres au total. */
+   et le groupe 1010 en compte CINQ : 11 équipes au total.
+   Chaque groupe a 6 créneaux, donc 1 créneau sera libre au total. */
 
 const SESSIONS = Object.freeze([
   { id: 'ven-matin-1020', day: 'Vendredi 4 décembre', shortDay: 'VEN 04 DÉC', dateISO: '2026-12-04', group: '1020', start: 8 * 60 + 10 },
@@ -78,6 +79,15 @@ function cleanAssignments(candidate) {
         used.add(team.id);
         result[slot.id] = { type: value.type, teamId: team.id, timestamp: value.timestamp || '' };
       }
+    }
+  }
+  // Rouvre les plages libres excédentaires si une équipe a été ajoutée depuis la sauvegarde.
+  for (const group of ['1010', '1020']) {
+    const slots = groupSlots(group);
+    const freeSlots = slots.filter(slot => result[slot.id]?.type === 'free');
+    const maxFree = Math.max(0, slots.length - countTeams(group));
+    for (const slot of freeSlots.slice(0, Math.max(0, freeSlots.length - maxFree))) {
+      delete result[slot.id];
     }
   }
   return result;

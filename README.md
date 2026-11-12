@@ -18,10 +18,10 @@ Application ludique et interactive pour répartir les présentations des **4 et 
 
 | Groupe | Cours 1 | Plages | Cours 2 | Plages |
 |---|---|---|---|---|
-| **1010** (4 équipes) | Vendredi 4 décembre, 12 h 10 | 12 h 10–12 h 35 ; 12 h 35–13 h ; 13 h–13 h 25 | Lundi 7 décembre, 8 h 10 | 8 h 10–8 h 35 ; 8 h 35–9 h ; 9 h–9 h 25 |
+| **1010** (5 équipes) | Vendredi 4 décembre, 12 h 10 | 12 h 10–12 h 35 ; 12 h 35–13 h ; 13 h–13 h 25 | Lundi 7 décembre, 8 h 10 | 8 h 10–8 h 35 ; 8 h 35–9 h ; 9 h–9 h 25 |
 | **1020** (6 équipes) | Vendredi 4 décembre, 8 h 10 | 8 h 10–8 h 35 ; 8 h 35–9 h ; 9 h–9 h 25 | Lundi 7 décembre, 12 h 10 | 12 h 10–12 h 35 ; 12 h 35–13 h ; 13 h–13 h 25 |
 
-La liste comprend **10 équipes** : quatre dans le 1010 et six dans le 1020, dont **Los Analistas**. Il y a **12 plages** en tout : **2 libres** (groupe 1010) lorsque les deux tirages sont terminés.
+La liste comprend **11 équipes** : cinq dans le 1010, dont **1010-Équipe LAN**, et six dans le 1020, dont **Los Analistas**. Il y a **12 plages** en tout : **1 libre** (groupe 1010) lorsque les deux tirages sont terminés.
 
 ## 🎮 Fonctionnalités
 
