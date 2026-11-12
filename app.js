@@ -13,7 +13,7 @@ const TEAMS = Object.freeze([
   { id: '1010-petits', group: '1010', name: 'Petits de Montpetit' },
   { id: '1010-redbull', group: '1010', name: 'Redbull the Peach edition' },
   { id: '1010-tts', group: '1010', name: 'Text To Speech TTS' },
-  { id: '1010-lan', group: '1010', name: '1010-Équipe LAN' },
+  { id: '1010-lan', group: '1010', name: 'LAN' },
   { id: '1020-bmrz', group: '1020', name: 'B.M.R.Z. Incorporated' },
   { id: '1020-commit', group: '1020', name: 'Commit et Pray' },
   { id: '1020-crack', group: '1020', name: 'Le C.R.A.C.K' },
